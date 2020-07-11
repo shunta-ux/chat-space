@@ -1,11 +1,9 @@
 ## user_createsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |user_name|string|null: false, foreign_key: true|
 |email|string|null: false, foreign_key: true|
 |password|string|null: false, foreign_key: true|
-
 
 ### Association
 - has_many :tweets
@@ -16,13 +14,10 @@
 
 
 ## user_editsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |user_name|string|null: false, foreign_key: true|
 |email|string|null: false, foreign_key: true|
-
-
 
 ### Association
 - belongs_to :user_creates
@@ -31,8 +26,8 @@
 - has_many :group_creates
 
 
-## tweetsテーブル
 
+## tweetsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_name|string|null: false, foreign_key: true|
@@ -49,7 +44,6 @@
 
 
 ## groups_createsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false, foreign_key: true|
@@ -64,7 +58,6 @@
 
 
 ## group_editsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false, foreign_key: true|
@@ -75,7 +68,3 @@
 - belongs_to :group_creates
 - has_many :tweets
 - has_many :user_edits
-
-
-
-
