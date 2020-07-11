@@ -19,8 +19,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|integer|null: false, foreign_key: true|
-|email|integer|null: false, foreign_key: true|
+|user_name|string|null: false, foreign_key: true|
+|email|string|null: false, foreign_key: true|
 
 
 
@@ -38,7 +38,7 @@
 |user_name|string|null: false, foreign_key: true|
 |image|string|null: false, foreign_key: true|
 |text|string|null: false, foreign_key: true|
-|created_at|string|null: false, foreign_key: true|
+|created_at|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user_creates
