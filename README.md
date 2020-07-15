@@ -6,7 +6,7 @@
 |password|string|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user_group
+- has_many :user_groups
 - has_many :groups, through: :user_groups
 - has_many :messages
 
@@ -43,9 +43,9 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|management|string|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- belongs_to :user_group
+- has_many :user_groups
 - has_many :users, through: :user_groups
 - has_many :messages
