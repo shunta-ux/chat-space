@@ -6,7 +6,8 @@
 |password|string|null: false, foreign_key: true|
 
 ### Association
-- has_many :groups, through: :authorization
+- has_many :authorizations
+- has_many :groups, through: :authorizations
 - has_many :messages
 
 
@@ -20,7 +21,7 @@
 
 ### Association
 - belongs_to :user
-
+- belongs_to :group
 
 
 ## authorizationsテーブル
@@ -30,8 +31,9 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
-- has_many :groups
+- belongs_to :user
+- belongs_to :group
+
 
 
 
@@ -42,4 +44,6 @@
 |member|string|null: false, foreign_key: true|
 
 ### Association
-- has_many :users, through: :authorization
+- has_many :authorizations
+- has_many :users, through: :authorizations
+- has_many :messages
