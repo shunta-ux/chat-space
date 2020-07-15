@@ -1,13 +1,13 @@
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|nickname|string|null: false, foreign_key: true|
 |email|string|null: false, foreign_key: true|
 |password|string|null: false, foreign_key: true|
 
 ### Association
-- has_many :authorizations
-- has_many :groups, through: :authorizations
+- belongs_to :user_group
+- has_many :groups, through: :user_groups
 - has_many :messages
 
 
@@ -18,13 +18,16 @@
 |text|text||
 |image|string||
 |created_at|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
 - belongs_to :group
 
 
-## authorizationsテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -40,10 +43,9 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|member|string|null: false, foreign_key: true|
+|management|string|null: false, foreign_key: true|
 
 ### Association
-- has_many :authorizations
-- has_many :users, through: :authorizations
+- belongs_to :user_group
+- has_many :users, through: :user_groups
 - has_many :messages
