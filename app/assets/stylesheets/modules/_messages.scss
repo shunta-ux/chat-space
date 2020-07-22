@@ -48,12 +48,16 @@
     color: #ffffff;
     .group_info{
       padding: 20px 20px 40px 20px;
-      .group_name{
-        font-size: 15px;
-        padding-bottom: 5px;
-      }
-      .group_status{
-        font-size: 11px;
+      .color_adjustment{
+        text-decoration: none;
+        color: #ffffff;
+        .group_name{
+          font-size: 15px;
+          padding-bottom: 5px;
+        }
+        .group_status{
+          font-size: 11px;
+        }
       }
     }
   }
