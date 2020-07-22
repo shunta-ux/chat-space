@@ -1,1 +1,27 @@
-<サイドバー>
+.side_bar
+  .side_bar__user_name
+    .left_header
+      %p.left_header__account_name shunta
+      %ul.left_header__icon_list
+        %li.left_header__icon
+          = link_to "#", class: "icon__logo" do
+            = icon('far', 'edit')
+        %li.left_header__icon
+          = link_to "#", class: "icon__logo" do
+            = icon('fas', 'cog')
+  .side_bar__grouplist
+    .group_info
+      .group_name
+        techamp
+      .group_status
+        まだメッセージがありません
+    .group_info
+      .group_name
+        techamp
+      .group_status
+        まだメッセージがありません
+    .group_info
+      .group_name
+        techamp
+      .group_status
+        まだメッセージがありません
