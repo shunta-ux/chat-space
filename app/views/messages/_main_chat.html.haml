@@ -2,49 +2,36 @@
   .main_chat__group_info
     .left_header
       .group_name
-        test
+        = @group.name
       %ul.member_list
         Member :
         %li.member_name
-          name
+          - @group.users.each do |participant|
+            = participant.name
     .right_header
       .edit_btn
-        = link_to "#", class: "Edit_btn" do
+        = link_to edit_group_path(@group.id), class: "Edit_btn" do
           Edit
   .main_chat__message_list
-    .message_box
-      .message_info
-        .message_username
-          shunta
-        .message_date
-          2020-07-21
-      .message
-        %p.message_content
-          テストですよ
-      .message_box
-      .message_info
-        .message_username
-          shunta
-        .message_date
-          2020-07-21
-      .message
-        %p.message_content
-          テストですよ
-    .message_box
-      .message_info
-        .message_username
-          shunta
-        .message_date
-          2020-07-21
-      .message
-        %p.message_content
-          テストですよ
+    = render @messages
+
 
   .main_chat__message_form
-    %form.message_contents
-      .form_box
-        %input.message_content{placeholder: "type a message"}
-        %label{class: "input-box"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "file"}
-      %input.send_btn{ type: "submit",  value: "Send", class: "btn_configuration" }
+    -# %form.message_contents
+    -#   .form_box
+    -#     %input.message_content{placeholder: "type a message"}
+    -#     %label{class: "input-box"}
+    -#       = icon('fas', 'image')
+    -#       %input{type: "file", class: "file"}
+    -#   %input.send_btn{ type: "submit",  value: "Send", class: "btn_configuration" }
+
+    .form.message_contents
+      = form_with model: [@group, @message], html: {class: "form_box"}, local: true do |f|
+        .form_box
+          = f.text_field :content, class: 'message_content', placeholder: 'type a message'
+          = f.label :image, class: 'input-box' do
+            = icon('fas', 'image', class: 'Form__icon')
+            = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'btn_configuration'
+
+        
